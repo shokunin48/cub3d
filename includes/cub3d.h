@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:13:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/07/28 18:09:30 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:15:47 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,49 @@ typedef struct s_raycast
 {
 	void		*mlx;
 	void		*win;
+	void		*img;
+	char		*img_addr;
+	double		pos_x;
+	double		pos_y;
+	double		dir_x;
+	double		dir_y;
+	double		plane_x;
+	double		plane_y;
+	double		camera_x;
+	double		ray_dir_x;
+	double		ray_dir_y;
+	int			map_x;
+	int			map_y;
+	double		side_dist_x;
+	double		side_dist_y;
+	double		delta_dist_x;
+	double		delta_dist_y;
+	double		perp_wall_dist;
+	int			step_x;
+	int			step_y;
+	int			hit;
+	int			side;
+	int			line_height;
+	int			draw_start;
+	int			draw_end;
+	int			color;
+	double		move_speed;
+	double		rot_speed;
+	double		old_dir_x;
+	double		old_plane_x;
+	double		frametime;
+	double		time;
+	double		oldtime;
+	int			line_length;
+	int			endian;
+	int			bits_per_pixel;
+	int			texnum;
+	double		wallx;
+	int			texx;
+	int			texy;
+	double		step;
+	double		texpos;
+	uint32_t	colr;
 }	t_raycast;
 
 typedef struct s_game
@@ -82,5 +125,11 @@ void	init_map_data(t_game *game, char *path);
 size_t	matrix_len(char **str);
 void	matrix_free(char **str);
 void	free_game(t_game *game);
+int		init_textures(t_game *game);
+
+// drawing
+
+void	init_facing_direction(t_game *game);
+
 
 #endif

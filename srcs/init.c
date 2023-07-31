@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:31:41 by ibellash          #+#    #+#             */
-/*   Updated: 2023/07/30 16:55:22 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/07/30 19:51:51 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,28 @@ void	init_map_data(t_game *game, char *path)
 		i++;
 	}
 	matrix_free(file_content);
+}
+
+void	init_facing_direction(t_game *game)
+{
+	if (game->player_direction == 'E')
+	{
+		game->rays->dir_x = -1;
+		game->rays->plane_y = 0.66;
+	}
+	if (game->player_direction == 'N')
+	{
+		game->rays->dir_y = -1;
+		game->rays->plane_x = -0.66;
+	}
+	if (game->player_direction == 'W')
+	{
+		game->rays->dir_x = 1;
+		game->rays->plane_y = -0.66;
+	}
+	if (game->player_direction == 'S')
+	{
+		game->rays->dir_y = 1;
+		game->rays->plane_x = 0.66;
+	}
 }
