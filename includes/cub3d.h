@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:13:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/07/28 18:09:30 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/07/31 16:10:24 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ typedef struct s_raycast
 {
 	void		*mlx;
 	void		*win;
+	double		pos_x;
+	double		pos_y;
 }	t_raycast;
 
 typedef struct s_game
@@ -74,13 +76,35 @@ typedef struct s_game
 	char		player_direction;
 }	t_game;
 
-int		close_game(t_game *game);
-int		init_game_vars(t_game *game);
-void	throw_error(t_game *game, char *message);
-char	**read_map(t_game *game, char *map);
-void	init_map_data(t_game *game, char *path);
-size_t	matrix_len(char **str);
-void	matrix_free(char **str);
-void	free_game(t_game *game);
+int				close_game(t_game *game);
+int				init_game_vars(t_game *game);
+void			throw_error(t_game *game, char *message);
+char			**read_map(t_game *game, char *map);
+void			init_map_data(t_game *game, char *path);
+size_t			matrix_len(char **str);
+void			matrix_free(char **str);
+char			**matrix_dup(char **str, int size);
+void			free_game(t_game *game);
+void			init_map_vars(t_game *game, char **file_content);
+char			**ft_split_spaces(char *s);
+int				ft_isspace(int c);
+t_image			read_xmp_image(void *mlx, char *file);
+void			my_mlx_pixel_put(t_game *game, int x, int y, uint32_t color);
+unsigned int	ft_get_ticks(void);
+void			init_map(t_game *game, char **file_content);
+int				check_components(t_game *game, char **map, int i);
+int				check_walls(char **map);
+int				check_empty(char **map);
+void			map_check_errors(t_game *game, char **file_content);
+int				check_if_nums(char *num);
+char			**get_map(char **file_content);
+void			fill_with_ones(t_game *game);
+int				is_empty_line(char *line);
+
+int	create_trgb(int t, int r, int g, int b);
+int	get_t(int trgb);
+int	get_r(int trgb);
+int	get_g(int trgb);
+int	get_b(int trgb);
 
 #endif

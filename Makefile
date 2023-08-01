@@ -6,14 +6,19 @@
 #    By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/27 15:08:24 by ibellash          #+#    #+#              #
-#    Updated: 2023/07/29 19:05:25 by ibellash         ###   ########.fr        #
+#    Updated: 2023/08/01 14:17:57 by ibellash         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS =	main.c \
 		exit.c \
-		init.c \
+		init_map.c \
+		map_errors.c \
 		map.c \
+		pic_utils.c \
+		split_utils.c \
+		color_trgb.c \
+		fill_map.c \
 		utils.c
 
 NAME = cub3d
@@ -33,7 +38,6 @@ CC_FLAGS = -Wall -Wextra -Werror
 
 $(OBJS_DIR)%.o : $(SRCS_DIR)%.c includes/cub3d.h
 	@mkdir -p $(OBJS_DIR)
-	@echo "Compiling: $<"
 	@gcc $(CC_FLAGS) -O3 -c $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)

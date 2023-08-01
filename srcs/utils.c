@@ -6,11 +6,32 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 17:36:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/07/28 17:38:46 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/07/31 15:41:21 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+int	check_if_nums(char *num)
+{
+	int	i;
+
+	i = 0;
+	while (num[i])
+	{
+		if (!ft_isdigit(num[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	ft_isspace(int c)
+{
+	if ((c < 9 || c > 13) && c != 32)
+		return (0);
+	return (1);
+}
 
 size_t	matrix_len(char **str)
 {
