@@ -6,11 +6,35 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:11:38 by ibellash          #+#    #+#             */
-/*   Updated: 2023/08/01 15:00:03 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/08/01 15:08:26 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	init_facing_direction(t_game *game)
+{
+	if (game->player_direction == 'E')
+	{
+		game->rays->dir_x = -1;
+		game->rays->plane_y = 0.66;
+	}
+	if (game->player_direction == 'N')
+	{
+		game->rays->dir_y = -1;
+		game->rays->plane_x = -0.66;
+	}
+	if (game->player_direction == 'W')
+	{
+		game->rays->dir_x = 1;
+		game->rays->plane_y = -0.66;
+	}
+	if (game->player_direction == 'S')
+	{
+		game->rays->dir_y = 1;
+		game->rays->plane_x = 0.66;
+	}
+}
 
 int	init_game_vars(t_game *game)
 {
@@ -65,6 +89,7 @@ int	main(int argc, char *argv[])
 	if (!init_game_vars(game))
 		throw_error(game, "Memory allocation!");
 	init_map_data(game, argv[1]);
+	init_facing_direction(game);
 	mlx_hook(game->win, 17, 1L << 0, close_game, game);
 	mlx_loop(game->mlx);
 	return (0);
