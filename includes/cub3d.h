@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:13:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/08/01 15:07:40 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/08/01 20:25:04 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,10 +142,19 @@ char			**get_map(char **file_content);
 void			fill_with_ones(t_game *game);
 int				is_empty_line(char *line);
 
-int	create_trgb(int t, int r, int g, int b);
-int	get_t(int trgb);
-int	get_r(int trgb);
-int	get_g(int trgb);
-int	get_b(int trgb);
+int				create_trgb(int t, int r, int g, int b);
+int				get_t(int trgb);
+int				get_r(int trgb);
+int				get_g(int trgb);
+int				get_b(int trgb);
+
+int				init_textures(t_game *g);
+int				draw(t_game *game);
+void			calc_hit(t_game *game);
+void			check_side(t_game *game);
+void			calc_side_dist(t_game *game);
+void			calc_side_dist_y(t_game *game);
+void			init_wall_casting(t_game *game, int i); 
+
 
 #endif

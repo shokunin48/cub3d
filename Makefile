@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+         #
+#    By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/27 15:08:24 by ibellash          #+#    #+#              #
-#    Updated: 2023/08/01 14:17:57 by ibellash         ###   ########.fr        #
+#    Updated: 2023/08/01 20:25:26 by dsas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,10 @@ SRCS =	main.c \
 		split_utils.c \
 		color_trgb.c \
 		fill_map.c \
-		utils.c
+		utils.c \
+		textures.c \
+		raycasting.c \
+		raycasting2.c
 
 NAME = cub3d
 
@@ -34,7 +37,7 @@ OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
 CC = gcc -o3
 
-CC_FLAGS = -Wall -Wextra -Werror
+CC_FLAGS = 
 
 $(OBJS_DIR)%.o : $(SRCS_DIR)%.c includes/cub3d.h
 	@mkdir -p $(OBJS_DIR)

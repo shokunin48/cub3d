@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pic_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 20:07:43 by ibellash          #+#    #+#             */
-/*   Updated: 2023/07/31 16:09:57 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/08/01 16:16:19 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ t_image	read_xmp_image(void *mlx, char *file)
 	return (sprite);
 }
 
-// void	my_mlx_pixel_put(t_game *game, int x, int y, uint32_t color)
-// {
-// 	char	*dst;
+ void	my_mlx_pixel_put(t_game *game, int x, int y, uint32_t color)
+ {
+ 	char	*dst;
 
-// 	dst = game->rays->img_addr + (y * game->rays->line_length + \
-// 		x * (game->rays->bits_per_pixel / 8));
-// 	*(int *)dst = color;
-// }
+ 	dst = game->rays->img_addr + (y * game->rays->line_length + \
+ 		x * (game->rays->bits_per_pixel / 8));
+ 	*(int *)dst = color;
+ }
 
 unsigned int	ft_get_ticks(void)
 {
