@@ -6,7 +6,7 @@
 #    By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/27 15:08:24 by ibellash          #+#    #+#              #
-#    Updated: 2023/08/01 20:25:26 by dsas             ###   ########.fr        #
+#    Updated: 2023/08/02 20:04:57 by dsas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,10 @@ SRCS =	main.c \
 		utils.c \
 		textures.c \
 		raycasting.c \
-		raycasting2.c
+		raycasting2.c \
+		keys.c \
+		keys2.c \
+		move.c
 
 NAME = cub3d
 

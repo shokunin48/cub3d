@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:11:38 by ibellash          #+#    #+#             */
-/*   Updated: 2023/08/01 20:18:37 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/02 20:23:37 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,15 @@ int	init_game_vars(t_game *game)
 	game->rays->mlx = game->mlx;
 	game->tex_width = 64;
 	game->tex_height = 64;
+	game->movespeed = 0.06;
+	game->rotspeed = 0.03;
+	game->key_w = 0;
+	game->key_s = 0;
+	game->key_a = 0;
+	game->key_d = 0;
+	game->key_esc = 0;
+	game->key_right = 0;
+	game->key_left = 0;
 	game->win = mlx_new_window(game->mlx, game->screen_width, \
 									game->screen_height, "Game");
 	game->rays->win = game->win;
@@ -87,14 +96,18 @@ int	main(int argc, char *argv[])
 		throw_error(game, "Memory allocation!");
 	if (argc != 2)
 		throw_error(game, ARGS_ERROR);
+	if (ft_strlen(ft_strnstr(argv[1], ".cub", ft_strlen(argv[1]))) != 4)
+		throw_error(game, "Wrong extension\n");
 	if (!init_game_vars(game))
 		throw_error(game, "Memory allocation!");
 	init_map_data(game, argv[1]);
 	init_facing_direction(game);
 	if (!init_textures(game))
 		throw_error(game, "Memory allocation!");
-	mlx_hook(game->win, 17, 1L << 0, close_game, game);
 	mlx_loop_hook(game->mlx, draw, game);
+	mlx_hook(game->win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, &game);
+	mlx_hook(game->win, KEYRELEASE, 1L << 1, &key_release, &game);
+	mlx_hook(game->win, 17, 1L << 17, &close_game, &game);
 	mlx_loop(game->mlx);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:34:25 by dsas              #+#    #+#             */
-/*   Updated: 2023/08/01 20:35:38 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/02 18:18:53 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	init_wall_casting(t_game *game, int i)
 	rays->delta_dist_x = fabs(1 / rays->ray_dir_x);
 	rays->delta_dist_y = fabs(1 / rays->ray_dir_y);
 	rays->hit = 0;
+	//printf ("%f, %f, %f ", rays->dir_x, rays->plane_x, rays->camera_x);
 }
 
 void	calc_side_dist_y(t_game *game)
@@ -90,7 +91,7 @@ void	calc_hit(t_game *game)
 	t_raycast	*rays;
 
 	rays = game->rays;
-	puts("hello");
+	//puts("hello");
 	while (rays->hit == 0)
 	{
 		if (rays->side_dist_x < rays->side_dist_y)

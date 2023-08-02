@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:13:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/08/01 20:25:04 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/02 20:21:27 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@
 # include <time.h>
 # include "../mlx/mlx.h"
 
+# define KEYPRESS 2
+# define KEYRELEASE 3
+# define X_EVENT_KEY_PRESS 2
+# define X_EVENT_KEY_EXIT 17
+
+# define ESC_KEY 53
+# define KEY_ARR_LEFT 123
+# define KEY_ARR_RIGHT 124
+# define W_KEY 13
+# define S_KEY 1
+# define D_KEY 2
+# define A_KEY 0
+
 # define ARGS_ERROR "Wrong amount of arguments!\n"
 # define FILE_ERROR "Given file path is invalid!\n"
 # define MAP_ARGS_ERROR "There is some problem with arguments in file!"
@@ -32,12 +45,6 @@
 # define MAP_COMPONENTS_ERROR "Map doesn't have the player starting \
 position, has multiple starting positions or has some invalid characters!\n"
 # define SPRITE_ERROR "Couldn't find a sprite. Does it exist?\n"
-
-# define KEY_W				13
-# define KEY_A				0
-# define KEY_S				1
-# define KEY_D				2
-# define KEY_ESC			53
 
 typedef struct s_image
 {
@@ -115,6 +122,15 @@ typedef struct s_game
 	int			ceiling_color;
 	int			size_line;
 	char		player_direction;
+	double 		movespeed;
+	double 		rotspeed;
+	int 		key_w;
+	int 		key_s;
+	int 		key_d;
+	int 		key_a;
+	int 		key_esc;
+	int 		key_right;
+	int 		key_left;
 }	t_game;
 
 int				close_game(t_game *game);
@@ -155,6 +171,11 @@ void			check_side(t_game *game);
 void			calc_side_dist(t_game *game);
 void			calc_side_dist_y(t_game *game);
 void			init_wall_casting(t_game *game, int i); 
-
+int				keys(int keycode, t_game *game);
+void			key_right(t_game *game);
+void			key_left(t_game *game);
+int				key_hook(t_game *d);
+int				key_release(int key, t_game *d);
+int				key_press(int key, t_game *d);
 
 #endif

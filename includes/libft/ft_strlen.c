@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 11:37:15 by dsas              #+#    #+#             */
-/*   Updated: 2022/12/12 14:45:41 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/02 19:39:59 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 	size_t	counter;
 
 	counter = 0;
+	if (!s)
+		return (-1);
 	while (*s != '\0')
 	{
 		counter++;
