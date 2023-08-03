@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 20:04:26 by dsas              #+#    #+#             */
-/*   Updated: 2023/08/02 20:40:36 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 15:34:16 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 void	move(int direction, t_game *d)
 {
-	puts("sdf");
+	
 	if (direction == 1)
 	{
 		if ((d->map[(int)(d->rays->pos_x + d->rays->dir_x * d->movespeed)][(int)(d->rays->pos_y)]) == '0')
-			d->rays->pos_x += d->rays->dir_x * d->movespeed;
+			{puts("sdf1");
+			d->rays->pos_x += d->rays->dir_x * d->movespeed;}
 		if ((d->map[(int)(d->rays->pos_x)][(int)(d->rays->pos_y + d->rays->dir_y * d->movespeed)]) == '0')
-			d->rays->pos_y += d->rays->dir_y * d->movespeed;
+			{puts("sdf2");
+			d->rays->pos_y += d->rays->dir_y * d->movespeed;}
 	}
 	else if (direction == -1)
 	{
