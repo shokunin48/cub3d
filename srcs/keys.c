@@ -6,62 +6,62 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 17:44:10 by dsas              #+#    #+#             */
-/*   Updated: 2023/08/02 17:48:24 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 15:41:07 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static void	key_up(t_game *game)
+void	key_up(t_game *game)
 {
 	t_raycast	*rays;
 
 	rays = game->rays;
 	if (game->map[(int)rays->pos_y][(int)(rays->pos_x + \
-								rays->dir_x * rays->move_speed)] == '0')
-		rays->pos_x += rays->dir_x * rays->move_speed;
+								rays->dir_x * game->movespeed)] == '0')
+		rays->pos_x += rays->dir_x * game->movespeed;
 	if (game->map[(int)(rays->pos_y + rays->dir_y * \
-							rays->move_speed)][(int)rays->pos_x] == '0')
-		rays->pos_y += rays->dir_y * rays->move_speed;
+							game->movespeed)][(int)rays->pos_x] == '0')
+		rays->pos_y += rays->dir_y * game->movespeed;
 }
 
-static void	key_down(t_game *game)
+void	key_down(t_game *game)
 {
 	t_raycast	*rays;
 
 	rays = game->rays;
 	if (game->map[(int)rays->pos_y][(int)(rays->pos_x - \
-								rays->dir_x * rays->move_speed)] == '0')
-		rays->pos_x -= rays->dir_x * rays->move_speed;
+								rays->dir_x * game->movespeed)] == '0')
+		rays->pos_x -= rays->dir_x * game->movespeed;
 	if (game->map[(int)(rays->pos_y - rays->dir_y * \
-							rays->move_speed)][(int)rays->pos_x] == '0')
-		rays->pos_y -= rays->dir_y * rays->move_speed;
+							game->movespeed)][(int)rays->pos_x] == '0')
+		rays->pos_y -= rays->dir_y * game->movespeed;
 }
 
-static void	key_a(t_game *game)
+void	key_a(t_game *game)
 {
 	t_raycast	*rays;
 
 	rays = game->rays;
 	if (game->map[(int)rays->pos_y][(int)(rays->pos_x - \
-						rays->dir_y * rays->move_speed)] == '0')
-	rays->pos_x -= rays->dir_y * rays->move_speed;
+						rays->dir_y * game->movespeed)] == '0')
+	rays->pos_x -= rays->dir_y * game->movespeed;
 	if (game->map[(int)(rays->pos_y + rays->dir_x * \
-				rays->move_speed)][(int)rays->pos_x] == '0')
-	rays->pos_y += rays->dir_x * rays->move_speed;
+				game->movespeed)][(int)rays->pos_x] == '0')
+	rays->pos_y += rays->dir_x * game->movespeed;
 }
 
-static void	key_d(t_game *game)
+void	key_d(t_game *game)
 {
 	t_raycast	*rays;
 
 	rays = game->rays;
 	if (game->map[(int)rays->pos_y][(int)(rays->pos_x + \
-					rays->dir_y * rays->move_speed)] == '0')
-	rays->pos_x += rays->dir_y * rays->move_speed;
+					rays->dir_y * game->movespeed)] == '0')
+	rays->pos_x += rays->dir_y * game->movespeed;
 	if (game->map[(int)(rays->pos_y - rays->dir_x * \
-				rays->move_speed)][(int)rays->pos_x] == '0')
-	rays->pos_y -= rays->dir_x * rays->move_speed;
+				game->movespeed)][(int)rays->pos_x] == '0')
+	rays->pos_y -= rays->dir_x * game->movespeed;
 }
 
 int	keys(int keycode, t_game *game)

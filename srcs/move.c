@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 20:04:26 by dsas              #+#    #+#             */
-/*   Updated: 2023/08/03 15:34:16 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 15:42:33 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,17 @@ void	rotate(int direction, t_game *d, double rotspeed)
 int	key_hook(t_game *d)
 {
 	if (d->key_w)
-		move(1, d);
+		key_up(d);
 	if (d->key_s)
-		move(-1, d);
-	if (d->key_d || d->key_right)
+		key_down(d);
+	if (d->key_right)
 		rotate(1, d, d->rotspeed);
-	if (d->key_a || d->key_left)
+	if (d->key_left)
 		rotate(-1, d, d->rotspeed);
+	if (d->key_a)
+		key_a(d);
+	if (d->key_d)
+		key_d(d);
 	if (d->key_esc)
 		close_game(d);
 	return (0);

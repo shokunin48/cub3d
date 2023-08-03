@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:13:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/08/02 20:21:27 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 15:41:24 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,5 +177,8 @@ void			key_left(t_game *game);
 int				key_hook(t_game *d);
 int				key_release(int key, t_game *d);
 int				key_press(int key, t_game *d);
-
+void			key_up(t_game *game);
+void			key_down(t_game *game);
+void			key_a(t_game *game);
+void			key_d(t_game *game);
 #endif
