@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
+/*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 17:44:10 by dsas              #+#    #+#             */
-/*   Updated: 2023/08/03 15:41:07 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 17:55:57 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	key_a(t_game *game)
 	rays = game->rays;
 	if (game->map[(int)rays->pos_y][(int)(rays->pos_x - \
 						rays->dir_y * game->movespeed)] == '0')
-	rays->pos_x -= rays->dir_y * game->movespeed;
+		rays->pos_x -= rays->dir_y * game->movespeed;
 	if (game->map[(int)(rays->pos_y + rays->dir_x * \
 				game->movespeed)][(int)rays->pos_x] == '0')
-	rays->pos_y += rays->dir_x * game->movespeed;
+		rays->pos_y += rays->dir_x * game->movespeed;
 }
 
 void	key_d(t_game *game)
@@ -58,10 +58,10 @@ void	key_d(t_game *game)
 	rays = game->rays;
 	if (game->map[(int)rays->pos_y][(int)(rays->pos_x + \
 					rays->dir_y * game->movespeed)] == '0')
-	rays->pos_x += rays->dir_y * game->movespeed;
+		rays->pos_x += rays->dir_y * game->movespeed;
 	if (game->map[(int)(rays->pos_y - rays->dir_x * \
 				game->movespeed)][(int)rays->pos_x] == '0')
-	rays->pos_y -= rays->dir_x * game->movespeed;
+		rays->pos_y -= rays->dir_x * game->movespeed;
 }
 
 int	keys(int keycode, t_game *game)

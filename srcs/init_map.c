@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
+/*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:39:58 by ibellash          #+#    #+#             */
-/*   Updated: 2023/08/02 18:16:29 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 17:55:41 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,6 @@ void	init_map(t_game *game, char **file_content)
 	if (!check_components(game, game->map, i))
 	{
 		matrix_free(file_content);
-	 	throw_error(game, MAP_COMPONENTS_ERROR);
+		throw_error(game, MAP_COMPONENTS_ERROR);
 	}
 }

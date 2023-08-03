@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
+/*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:11:38 by ibellash          #+#    #+#             */
-/*   Updated: 2023/08/03 16:44:59 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 17:56:34 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int	init_game_vars(t_game *game)
 	game->screen_width = 1200;
 	game->screen_height = 900;
 	game->rays->mlx = game->mlx;
-	game->tex_width = 64;
-	game->tex_height = 64;
+	game->tex_width = TEX_SIZE;
+	game->tex_height = TEX_SIZE;
 	game->movespeed = 0.06;
-	game->rotspeed = 0.03;
+	game->rotspeed = 0.04;
 	game->key_w = 0;
 	game->key_s = 0;
 	game->key_a = 0;
@@ -57,8 +57,8 @@ int	init_game_vars(t_game *game)
 									game->screen_height, "Game");
 	game->rays->win = game->win;
 	game->texture = (uint32_t **) ft_calloc(sizeof(uint32_t *), 4);
-	 if (game->texture == NULL)
-	 	return (0);
+	if (game->texture == NULL)
+		return (0);
 	return (1);
 }
 
@@ -67,7 +67,6 @@ void	init_map_data(t_game *game, char *path)
 	char	**file_content;
 
 	file_content = read_map(game, path);
-
 	init_map_vars(game, file_content);
 	init_map(game, file_content);
 	matrix_free(file_content);
@@ -79,7 +78,7 @@ int	main(int argc, char *argv[])
 
 	(void)argv;
 	game = ft_calloc(sizeof(t_game), 1);
-	game->rays = ft_calloc(sizeof(t_raycast),1);
+	game->rays = ft_calloc(sizeof(t_raycast), 1);
 	if (game == NULL)
 		throw_error(game, "Memory allocation!");
 	if (argc != 2)

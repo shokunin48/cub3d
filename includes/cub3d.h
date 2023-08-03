@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
+/*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:13:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/08/03 16:48:43 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 18:05:06 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 # define D_KEY 2
 # define A_KEY 0
 # define KEY_SHIFT_LEFT	257
+
+# define TEX_SIZE 128
 
 # define ARGS_ERROR "Wrong amount of arguments!\n"
 # define FILE_ERROR "Given file path is invalid!\n"
@@ -123,15 +125,15 @@ typedef struct s_game
 	int			ceiling_color;
 	int			size_line;
 	char		player_direction;
-	double 		movespeed;
-	double 		rotspeed;
-	int 		key_w;
-	int 		key_s;
-	int 		key_d;
-	int 		key_a;
-	int 		key_esc;
-	int 		key_right;
-	int 		key_left;
+	double		movespeed;
+	double		rotspeed;
+	int			key_w;
+	int			key_s;
+	int			key_d;
+	int			key_a;
+	int			key_esc;
+	int			key_right;
+	int			key_left;
 }	t_game;
 
 int				close_game(t_game *game);
@@ -173,8 +175,6 @@ void			calc_side_dist(t_game *game);
 void			calc_side_dist_y(t_game *game);
 void			init_wall_casting(t_game *game, int i); 
 int				keys(int keycode, t_game *game);
-void			key_right(t_game *game);
-void			key_left(t_game *game);
 int				key_hook(t_game *d);
 int				key_release(int key, t_game *d);
 int				key_press(int key, t_game *d);

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
+/*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 16:03:32 by dsas              #+#    #+#             */
-/*   Updated: 2023/08/02 20:29:09 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 18:03:54 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
 
 void	floor_ceiling(t_game *game)
 {
@@ -51,7 +50,6 @@ static void	calc_draw(t_game *game)
 		r->wallx = r->pos_x + r->perp_wall_dist * r->ray_dir_x;
 	r->wallx -= floor((r->wallx));
 	r->texx = (int)(r->wallx * (double)game->tex_width);
-	//printf("%i", r->texx);
 }
 
 static void	draw_walls(t_game *game, int i)
@@ -68,23 +66,18 @@ static void	draw_walls(t_game *game, int i)
 	rays->texpos = (rays->draw_start - game->screen_height / 2 + \
 								rays->line_height / 2) * rays->step;
 	j = rays->draw_start;
-	//printf ("%i, %i", j, rays->draw_end);
 	while (j < rays->draw_end)
 	{
-		//puts("helllo");
 		rays->texy = (int)rays->texpos & (game->tex_height - 1);
 		rays->texpos += rays->step;
 		rays->colr = game->texture[rays->texnum + rays->side - 1] \
 		[game->tex_height * rays->texy + rays->texx];
-		if (rays->side % 2 == 1)
-			rays->colr = rays->colr / 2;
 		my_mlx_pixel_put(game, i, j, rays->colr);
-		//printf("dfdfg");
 		j++;
 	}
 }
 
-void wall_casting(t_game *game)
+void	wall_casting(t_game *game)
 {
 	int			i;
 	t_raycast	*rays;
@@ -106,7 +99,6 @@ int	draw(t_game *game)
 {
 	t_raycast	*rays;
 
-	//mlx_clear_window(game->mlx, game->win);
 	game->rays->time = ft_get_ticks();
 	rays = game->rays;
 	if (rays->img)
@@ -119,6 +111,5 @@ int	draw(t_game *game)
 	wall_casting(game);
 	mlx_put_image_to_window(game->mlx, game->win, rays->img, 0, 0);
 	key_hook(game);
-	
 	return (0);
 }

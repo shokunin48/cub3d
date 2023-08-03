@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
+/*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:34:25 by dsas              #+#    #+#             */
-/*   Updated: 2023/08/03 16:43:33 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 18:04:03 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	init_wall_casting(t_game *game, int i)
 	rays->delta_dist_x = fabs(1 / rays->ray_dir_x);
 	rays->delta_dist_y = fabs(1 / rays->ray_dir_y);
 	rays->hit = 0;
-	//printf ("%f, %f, %f ", rays->dir_x, rays->plane_x, rays->camera_x);
 }
 
 void	calc_side_dist_y(t_game *game)

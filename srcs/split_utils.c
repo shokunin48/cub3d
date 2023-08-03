@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 19:45:31 by ibellash          #+#    #+#             */
-/*   Updated: 2023/07/30 20:00:24 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/08/03 18:04:07 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,3 @@ char	**ft_split_spaces(char *s)
 	temp[j] = 0;
 	return (temp);
 }
-
