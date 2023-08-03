@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:34:25 by dsas              #+#    #+#             */
-/*   Updated: 2023/08/02 18:18:53 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 16:43:33 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ void	calc_hit(t_game *game)
 	t_raycast	*rays;
 
 	rays = game->rays;
-	//puts("hello");
 	while (rays->hit == 0)
 	{
 		if (rays->side_dist_x < rays->side_dist_y)

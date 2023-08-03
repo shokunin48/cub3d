@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:13:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/08/03 15:41:24 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 16:48:43 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include <time.h>
-# include "../mlx/mlx.h"
+# include <mlx.h>
 
 # define KEYPRESS 2
 # define KEYRELEASE 3
@@ -33,6 +33,7 @@
 # define S_KEY 1
 # define D_KEY 2
 # define A_KEY 0
+# define KEY_SHIFT_LEFT	257
 
 # define ARGS_ERROR "Wrong amount of arguments!\n"
 # define FILE_ERROR "Given file path is invalid!\n"

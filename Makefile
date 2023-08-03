@@ -6,7 +6,7 @@
 #    By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/27 15:08:24 by ibellash          #+#    #+#              #
-#    Updated: 2023/08/02 20:04:57 by dsas             ###   ########.fr        #
+#    Updated: 2023/08/03 16:41:25 by dsas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ NAME = cub3d
 
 LIBFT = includes/libft/
 MLX = mlx/
-
+LIBS	= -lm -lmlx -framework OpenGL -framework AppKit
 SRCS_DIR = srcs/
 
 OBJS_DIR = objs/
@@ -40,7 +40,7 @@ OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
 CC = gcc -o3
 
-CC_FLAGS = 
+CC_FLAGS = -Wall -Wextra -Werror
 
 $(OBJS_DIR)%.o : $(SRCS_DIR)%.c includes/cub3d.h
 	@mkdir -p $(OBJS_DIR)
@@ -48,8 +48,9 @@ $(OBJS_DIR)%.o : $(SRCS_DIR)%.c includes/cub3d.h
 
 $(NAME): $(OBJECTS_PREFIXED)
 	@make -C $(LIBFT)
-	@make -C $(MLX)
-	@$(CC)$(CC_FLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJECTS_PREFIXED) includes/libft/libft.a $(MLX)libmlx.a
+	#@make -C $(MLX)
+	#@$(CC) -o $(NAME) $(CC_FLAGS) -I $(OBJECTS_PREFIXED) includes/libft/libft.a $(LIBS)
+	@$(CC)$(CC_FLAGS) -lmlx -lm -framework OpenGL -framework AppKit -o $(NAME) $(OBJECTS_PREFIXED) includes/libft/libft.a 
 
 all: $(NAME)
 

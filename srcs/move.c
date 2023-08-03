@@ -6,39 +6,17 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 20:04:26 by dsas              #+#    #+#             */
-/*   Updated: 2023/08/03 15:42:33 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 16:50:55 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-void	move(int direction, t_game *d)
-{
-	
-	if (direction == 1)
-	{
-		if ((d->map[(int)(d->rays->pos_x + d->rays->dir_x * d->movespeed)][(int)(d->rays->pos_y)]) == '0')
-			{puts("sdf1");
-			d->rays->pos_x += d->rays->dir_x * d->movespeed;}
-		if ((d->map[(int)(d->rays->pos_x)][(int)(d->rays->pos_y + d->rays->dir_y * d->movespeed)]) == '0')
-			{puts("sdf2");
-			d->rays->pos_y += d->rays->dir_y * d->movespeed;}
-	}
-	else if (direction == -1)
-	{
-		if ((d->map[(int)(d->rays->pos_x - d->rays->dir_x * d->movespeed)][(int)(d->rays->pos_y)]) == '0')
-			d->rays->pos_x -= d->rays->dir_x * d->movespeed;
-		if ((d->map[(int)(d->rays->pos_x)][(int)(d->rays->pos_y - d->rays->dir_y * d->movespeed)]) == '0')
-			d->rays->pos_y -= d->rays->dir_y * d->movespeed;
-	}
-}
 
 void	rotate(int direction, t_game *d, double rotspeed)
 {
 	double	old_dir_x;
 	double	old_plane_x;
 
-	puts("dsgfds");
 	old_dir_x = d->rays->dir_x;
 	old_plane_x = d->rays->plane_x;
 	if (direction == 1)
@@ -92,6 +70,8 @@ int	key_release(int key, t_game *d)
 		d->key_left = 0;
 	if (key == ESC_KEY)
 		d->key_esc = 0;
+	if (key == KEY_SHIFT_LEFT)
+		d->movespeed /= 3;
 	return (0);
 }
 
@@ -111,5 +91,7 @@ int	key_press(int key, t_game *d)
 		d->key_left = 1;
 	if (key == ESC_KEY)
 		d->key_esc = 1;
+	if (key == KEY_SHIFT_LEFT)
+		d->movespeed *= 3;
 	return (0);
 }

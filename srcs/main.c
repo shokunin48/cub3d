@@ -6,7 +6,7 @@
 /*   By: dsas <dsas@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:11:38 by ibellash          #+#    #+#             */
-/*   Updated: 2023/08/03 15:42:44 by dsas             ###   ########.fr       */
+/*   Updated: 2023/08/03 16:44:59 by dsas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	init_game_vars(t_game *game)
 	game->key_w = 0;
 	game->key_s = 0;
 	game->key_a = 0;
-	game->key_d = 1;
+	game->key_d = 0;
 	game->key_esc = 0;
 	game->key_right = 0;
 	game->key_left = 0;
@@ -70,18 +70,6 @@ void	init_map_data(t_game *game, char *path)
 
 	init_map_vars(game, file_content);
 	init_map(game, file_content);
-	int i = 0;
-	int j;
-	while(game->map[i])
-	{
-		j = 0;
-		while(game->map[i][j])
-		{
-			printf("%c", game->map[i][j]);
-			j++;
-		}
-		i++;
-	}
 	matrix_free(file_content);
 }
 
@@ -105,9 +93,9 @@ int	main(int argc, char *argv[])
 	if (!init_textures(game))
 		throw_error(game, "Memory allocation!");
 	mlx_loop_hook(game->mlx, draw, game);
-	mlx_hook(game->win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, &game);
-	mlx_hook(game->win, KEYRELEASE, 1L << 1, &key_release, &game);
-	mlx_hook(game->win, 17, 1L << 17, &close_game, &game);
+	mlx_hook(game->win, KEYPRESS, 1L << 0, &key_press, game);
+	mlx_hook(game->win, KEYRELEASE, 1L << 1, &key_release, game);
+	mlx_hook(game->win, 17, 1L << 17, &close_game, game);
 	mlx_loop(game->mlx);
 	return (0);
 }
