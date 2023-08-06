@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:13:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/08/03 18:05:06 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/08/03 18:13:32 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,4 +182,6 @@ void			key_up(t_game *game);
 void			key_down(t_game *game);
 void			key_a(t_game *game);
 void			key_d(t_game *game);
+void			rotate(int direction, t_game *d, double rotspeed);
+
 #endif
